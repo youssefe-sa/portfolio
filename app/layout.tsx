@@ -13,25 +13,13 @@ export const metadata: Metadata = {
   description: 'Expert en WordPress, React, GitHub, Vercel, Bricks, SEO, Automation et AI. Portfolio de consultant premium transformant des visions en solutions numériques performantes.',
   generator: 'v0.app',
   icons: {
-    icon: [
-      {
-        url: '/favicon.ico',
-        sizes: '32x32',
-      },
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
+    icon: '/icon-light-32x32.png',
+    shortcut: '/icon-light-32x32.png',
     apple: '/apple-icon.png',
+    other: {
+      rel: 'apple-touch-icon-precomposed',
+      url: '/apple-icon.png',
+    },
   },
 }
 
