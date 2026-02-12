@@ -33,7 +33,7 @@ export default function Identity() {
               
               <div className="flex flex-col sm:flex-row gap-3 justify-center">
                 <a
-                  href="/cv.pdf"
+                  href="/cv.pdf.pdf"
                   download="sahab-youssef-cv.pdf"
                   className="inline-flex items-center gap-2 px-4 py-2 bg-primary text-white text-sm font-medium rounded-md hover:bg-primary/90 transition-colors duration-200"
                 >
@@ -56,7 +56,7 @@ export default function Identity() {
               </div>
               
               <p className="text-xs text-muted-foreground mt-3">
-                {language === 'fr' ? 'PDF • Mis à jour 2024' : 'PDF • Updated 2024'}
+                {language === 'fr' ? 'PDF • Mis à jour 2026' : 'PDF • Updated 2026'}
               </p>
             </div>
           </div>
