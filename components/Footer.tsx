@@ -89,13 +89,23 @@ export default function Footer() {
             <h4 className="font-semibold text-foreground mb-4">Contact</h4>
             <div className="space-y-3 text-sm">
               <p>
-                <a href="mailto:sahabyoussef@gmail.com" className="text-muted-foreground hover:text-primary transition-colors break-all">
-                  sahabyoussef@gmail.com
+                <a href="mailto:sahabyoussef@gmail.com" className="text-primary font-semibold hover:text-primary/80 transition-colors break-all">
+                  📧 sahabyoussef@gmail.com
                 </a>
               </p>
               <p>
-                <a href="tel:+212751134318" className="text-muted-foreground hover:text-primary transition-colors">
-                  +212 751 134318
+                <a href="tel:+212751134318" className="text-primary font-semibold hover:text-primary/80 transition-colors">
+                  📞 +212 751 134318
+                </a>
+              </p>
+              <p>
+                <a 
+                  href="https://github.com/youssefe-sa" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-primary font-semibold hover:text-primary/80 transition-colors"
+                >
+                  🔗 GitHub: youssefe-sa
                 </a>
               </p>
             </div>
@@ -123,16 +133,6 @@ export default function Footer() {
               {language === 'fr' ? 'Mentions Légales' : 'Legal Notices'}
             </a>
           </div>
-        </div>
-
-        {/* Back to Top Button */}
-        <div className="mt-8 pt-8 border-t border-border flex justify-center">
-          <button
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="px-6 py-2 rounded-full border border-border text-muted-foreground hover:border-primary hover:text-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 text-sm font-medium"
-          >
-            ↑ Back to Top
-          </button>
         </div>
       </div>
     </footer>
