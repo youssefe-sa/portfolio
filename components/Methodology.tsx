@@ -125,7 +125,7 @@ export default function Methodology() {
           <h3 className="text-2xl font-bold text-foreground mb-8">Garanties Qualité</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              'Délais respectés ± 10%',
+              'Délais respectés ± 5%',
               'Budget transparent',
               'Code documenté',
               'Tests complets',

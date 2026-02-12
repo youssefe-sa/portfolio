@@ -26,7 +26,7 @@ export default function Stack() {
     },
     {
       title: language === 'fr' ? 'Automation & IA' : 'Automation & AI',
-      items: ['Zapier', 'Make', 'GitHub Actions', language === 'fr' ? 'Intégration GPT' : 'GPT Integration', language === 'fr' ? 'Scripts Custom' : 'Custom Scripts'],
+      items: ['Zapier', 'Make', 'N8N', 'GitHub Actions', language === 'fr' ? 'Intégration GPT' : 'GPT Integration', language === 'fr' ? 'Scripts Custom' : 'Custom Scripts'],
       color: 'from-orange-500/20 to-orange-500/5'
     },
     {
@@ -86,7 +86,7 @@ export default function Stack() {
             { number: '96%', label: t.stack.stats.projects },
             { number: '7+', label: t.stack.stats.experience },
             { number: '95%', label: t.stack.stats.satisfaction },
-            { number: '100%', label: t.stack.stats.timeline },
+            { number: '100% ± 5%', label: t.stack.stats.timeline },
           ].map((stat, i) => (
             <div
               key={i}
@@ -94,7 +94,14 @@ export default function Stack() {
               style={{ animationDelay: `${i * 0.1}s` }}
             >
               <div className="text-4xl font-bold text-primary mb-2 group-hover:scale-110 transition-transform">
-                {stat.number}
+                {stat.number.includes('±') ? (
+                  <>
+                    <span className="text-4xl">{stat.number.split('±')[0]}</span>
+                    <span className="text-sm ml-1">± 5%</span>
+                  </>
+                ) : (
+                  stat.number
+                )}
               </div>
               <p className="text-muted-foreground text-sm">{stat.label}</p>
             </div>
