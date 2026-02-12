@@ -98,6 +98,11 @@ export default function Footer() {
                   📞 +212 751 134318
                 </a>
               </p>
+              <p className="text-xs text-muted-foreground mb-2 font-medium">
+                {language === 'fr' 
+                  ? 'Retrouvez mes projets et contributions'
+                  : 'Find my projects and contributions'}
+              </p>
               <p>
                 <a 
                   href="https://github.com/youssefe-sa" 
@@ -105,7 +110,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-primary font-semibold hover:text-primary/80 transition-colors"
                 >
-                  🔗 GitHub: youssefe-sa
+                  🔗 GitHub: Sahab-Youssef
                 </a>
               </p>
             </div>
