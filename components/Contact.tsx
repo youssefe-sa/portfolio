@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useLanguage } from '@/context/LanguageContext'
 import { translations } from '@/lib/translations'
 import { EMAILJS_CONFIG } from '@/lib/emailjs-config'
@@ -8,6 +8,7 @@ import { EMAILJS_CONFIG } from '@/lib/emailjs-config'
 export default function Contact() {
   const { language } = useLanguage()
   const t = translations[language]
+  const [mounted, setMounted] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,6 +20,10 @@ export default function Contact() {
   })
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -128,7 +133,7 @@ export default function Contact() {
                 {language === 'fr' ? 'Je vous recontacterai sous 24h.' : 'I will contact you within 24 hours.'}
               </p>
             </div>
-          ) : (
+          ) : mounted ? (
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Name */}
@@ -249,7 +254,7 @@ export default function Contact() {
                 {language === 'fr' ? 'Je répondrai à votre message dans les 24 heures • Aucun spam' : 'I will respond within 24 hours • No spam'}
               </p>
             </form>
-          )}
+          ) : null}
         </div>
 
         {/* FAQ Section */}

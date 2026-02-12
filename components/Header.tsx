@@ -29,10 +29,12 @@ export default function Header() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link href="#" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
-              <span className="text-white font-bold text-sm">SY</span>
+            <div className="w-8 h-8 bg-[#0047ab] rounded-lg flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
+              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
             </div>
-            <span className="font-semibold text-primary hidden sm:inline-block">Sahab Youssef</span>
+            <span className="font-bold text-[#0047ab] hidden sm:inline-block text-xl">Sahab-Youssef</span>
           </Link>
 
           {/* Desktop Navigation */}
