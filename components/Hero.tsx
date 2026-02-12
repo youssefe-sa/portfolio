@@ -67,13 +67,13 @@ export default function Hero() {
         {/* Trust Signals */}
         <div className="pt-12 border-t border-border">
           <p className="text-sm text-muted-foreground mb-6 animate-fade-in-up uppercase tracking-widest font-semibold">
-            {language === 'fr' ? 'APPROUVÉ PAR' : 'TRUSTED BY'}
+            {language === 'fr' ? 'TECHNOLOGIES MAÎTRISÉES' : 'MASTERED TECHNOLOGIES'}
           </p>
-          <div className="flex flex-wrap justify-center gap-6 sm:gap-12 animate-fade-in-up">
-            {['WordPress', 'React', 'Vercel', language === 'fr' ? 'Expert SEO' : 'SEO Expert', 'AI Ready'].map((item, i) => (
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-6 animate-fade-in-up">
+            {['WordPress', 'React', 'Node.js', 'Vercel', 'N8N', 'Make', language === 'fr' ? 'Expert SEO' : 'SEO Expert', 'AI Ready'].map((item, i) => (
               <div
                 key={i}
-                className="px-4 py-2 rounded-lg bg-card border border-border text-sm font-medium text-foreground hover:border-primary/50 transition-colors duration-300"
+                className="px-3 py-1 rounded-lg bg-card border border-border text-xs sm:text-sm font-medium text-foreground hover:border-primary/50 transition-colors duration-300"
               >
                 ✓ {item}
               </div>

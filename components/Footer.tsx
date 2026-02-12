@@ -117,11 +117,7 @@ export default function Footer() {
 
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-          <p className="text-sm text-muted-foreground">
-            {language === 'fr' 
-              ? '© 2025 Sahab Youssef. Tous droits réservés. Développeur web spécialisé.'
-              : '© 2025 Sahab Youssef. All rights reserved. Specialized web developer.'}
-          </p>
+          <p className="text-xs text-muted-foreground">© {currentYear} Sahab Youssef. {language === 'fr' ? 'Tous droits réservés.' : 'All rights reserved.'}</p>
           <div className="flex gap-6 text-sm">
             <a href="/confidentialite" className="text-muted-foreground hover:text-primary transition-colors">
               {language === 'fr' ? 'Confidentialité' : 'Privacy'}

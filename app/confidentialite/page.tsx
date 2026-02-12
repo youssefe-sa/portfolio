@@ -4,13 +4,26 @@ import React from 'react'
 import { useLanguage } from '@/context/LanguageContext'
 import { translations } from '@/lib/translations'
 import Link from 'next/link'
+import { LanguageProvider } from '@/context/LanguageContext'
 
-export default function Confidentialite() {
+function ConfidentialiteContent() {
   const { language } = useLanguage()
   const t = translations[language]
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-secondary/20">
+      {/* Simple Header */}
+      <header className="border-b border-border bg-white/50 backdrop-blur-sm sticky top-0 z-40">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+          <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <div className="w-8 h-8 bg-gradient-to-br from-primary to-accent rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-sm">SY</span>
+            </div>
+            <span className="font-semibold text-primary">Sahab Youssef</span>
+          </Link>
+        </div>
+      </header>
+
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in-up">
@@ -140,5 +153,13 @@ export default function Confidentialite() {
         </div>
       </div>
     </div>
+  )
+}
+
+export default function Confidentialite() {
+  return (
+    <LanguageProvider>
+      <ConfidentialiteContent />
+    </LanguageProvider>
   )
 }
