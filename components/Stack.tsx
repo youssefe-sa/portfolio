@@ -83,10 +83,10 @@ export default function Stack() {
         {/* Credentials Section */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {[
-            { number: '100+', label: 'Projets Réussis' },
-            { number: '7+', label: 'Ans d\'Expérience' },
-            { number: '95%', label: 'Taux de Satisfaction' },
-            { number: '50M+', label: 'Visiteurs Générés' },
+            { number: '96%', label: t.stack.stats.projects },
+            { number: '9+', label: t.stack.stats.experience },
+            { number: '95%', label: t.stack.stats.satisfaction },
+            { number: '100%', label: t.stack.stats.timeline },
           ].map((stat, i) => (
             <div
               key={i}

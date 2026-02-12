@@ -14,12 +14,12 @@ export default function Identity() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Left: Profile Image Placeholder */}
           <div className="relative order-2 md:order-1 animate-slide-in-left">
-            <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 via-accent/10 to-primary/10 border border-border p-8 flex items-center justify-center hover:shadow-lg hover:shadow-primary/10 transition-all duration-300">
-              <div className="w-full h-full rounded-xl bg-gradient-to-br from-primary/30 to-accent/20 flex items-center justify-center">
-                <svg className="w-full h-full opacity-20" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-                </svg>
-              </div>
+            <div className="aspect-square rounded-2xl bg-gradient-to-br from-primary/20 via-accent/10 to-primary/10 border border-border p-2 hover:shadow-lg hover:shadow-primary/10 transition-all duration-300 overflow-hidden">
+              <img 
+                src="/profile-photo.jpg" 
+                alt="Profile Photo" 
+                className="w-full h-full rounded-xl object-cover"
+              />
             </div>
           </div>
 

@@ -122,7 +122,7 @@ export default function Differentiation() {
           <h3 className="text-2xl font-bold text-foreground mb-8 text-center">
             Ce que disent mes clients
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
                 quote: 'Sahab a transformé notre WordPress en une machine de conversion. +320% en 4 mois.',
@@ -135,6 +135,18 @@ export default function Differentiation() {
               {
                 quote: 'Support rapide, code impeccable, ROI impressionant. Je recommande vraiment.',
                 author: 'Sophie, Marketing Director',
+              },
+              {
+                quote: 'Expert technique rare. Il a modernisé notre stack et boosté nos performances x3.',
+                author: 'Youssef, CEO Tech Maroc',
+              },
+              {
+                quote: 'La meilleure décision pour notre projet. Livraison avant délai, budget respecté.',
+                author: 'Fatima, Directrice Marketing',
+              },
+              {
+                quote: 'Code propre, documentation parfaite. On peut reprendre facilement son travail.',
+                author: 'Karim, CTO Startup',
               },
             ].map((testimonial, i) => (
               <div key={i} className="p-6 rounded-xl bg-secondary/50 border border-border hover:border-primary/50 transition-all duration-300 group">

@@ -67,6 +67,12 @@ export const translations = {
       stat2: '98% Client Satisfaction',
       stat3: '2M+ Users',
       stat4: '5+ Years Exp',
+      stats: {
+        projects: 'Projets Réussis',
+        experience: 'Ans d\'Expérience',
+        satisfaction: 'Taux de Satisfaction',
+        timeline: 'Temps Respecté',
+      },
     },
     // Case Studies
     caseStudies: {
@@ -275,6 +281,12 @@ export const translations = {
       stat2: '98% Client Satisfaction',
       stat3: '2M+ Users',
       stat4: '5+ Years Exp',
+      stats: {
+        projects: 'Successful Projects',
+        experience: 'Years of Experience',
+        satisfaction: 'Satisfaction Rate',
+        timeline: 'On-Time Delivery',
+      },
     },
     // Case Studies
     caseStudies: {

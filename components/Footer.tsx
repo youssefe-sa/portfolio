@@ -75,7 +75,6 @@ export default function Footer() {
                 {[
                   { label: 'LinkedIn', icon: '💼' },
                   { label: 'GitHub', icon: '💻' },
-                  { label: 'Twitter', icon: '🐦' },
                 ].map((social) => (
                   <a
                     key={social.label}

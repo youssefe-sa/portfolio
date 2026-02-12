@@ -10,6 +10,7 @@ export default function CaseStudies() {
   const { language } = useLanguage()
   const t = translations[language]
   const [selectedProject, setSelectedProject] = useState<any | null>(null)
+  const [selectedLiveProject, setSelectedLiveProject] = useState<any | null>(null)
   const [modalOpen, setModalOpen] = useState(false)
 
   const projects = [
@@ -189,6 +190,168 @@ export default function CaseStudies() {
             </div>
           ))}
         </div>
+
+        {/* Live Projects Section */}
+        <div className="mt-20 animate-fade-in-up">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-foreground mb-4">
+              {language === 'fr' ? 'Projets en Action' : 'Live Projects'}
+            </h3>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              {language === 'fr' 
+                ? 'Explorez mes réalisations en direct. Cliquez pour voir les projets fonctionnels.' 
+                : 'Explore my live work. Click to see functional projects in action.'}
+            </p>
+            <div className="w-12 h-1 bg-gradient-to-r from-accent to-primary rounded-full mx-auto mt-6"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                title: 'Home Service Hub',
+                description: language === 'fr' ? 'Platforme services domicile' : 'Home services platform',
+                url: 'https://home-service-hub-nu.vercel.app/',
+                category: 'WordPress/React',
+                color: 'from-blue-500/20 to-blue-500/5'
+              },
+              {
+                title: 'Assure AI Connect',
+                description: language === 'fr' ? 'Connecteur IA assurance' : 'Insurance AI connector',
+                url: 'https://assure-ai-connect-83-23.vercel.app/',
+                category: 'AI/React',
+                color: 'from-purple-500/20 to-purple-500/5'
+              },
+              {
+                title: 'ProspectAI',
+                description: language === 'fr' ? 'Plateforme IA prospection' : 'AI prospecting platform',
+                url: 'https://v0-website-redesign-platform-fy.vercel.app/',
+                category: 'AI/Next.js',
+                color: 'from-green-500/20 to-green-500/5'
+              },
+              {
+                title: 'MarocLearn',
+                description: language === 'fr' ? 'E-learning Maroc' : 'Moroccan e-learning',
+                url: 'https://maroclearn.vercel.app/',
+                category: 'Education/React',
+                color: 'from-orange-500/20 to-orange-500/5'
+              }
+            ].map((project, i) => (
+              <div
+                key={i}
+                className="group rounded-xl border border-border bg-white hover:border-primary/50 transition-all duration-300 cursor-pointer animate-fade-in-up hover:shadow-lg hover:shadow-primary/10"
+                style={{ animationDelay: `${i * 0.1}s` }}
+                onClick={() => setSelectedLiveProject(project)}
+              >
+                {/* Preview Image */}
+                <div className="relative h-32 bg-gradient-to-br from-primary/10 to-accent/10 rounded-t-lg overflow-hidden">
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="text-center">
+                      <div className="text-3xl mb-2">🌐</div>
+                      <p className="text-xs text-muted-foreground font-medium">{project.category}</p>
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Project Info */}
+                <div className="p-4">
+                  <h4 className="font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h4>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    {project.description}
+                  </p>
+                  <div className="flex items-center gap-2 text-xs text-primary font-semibold">
+                    <span>{language === 'fr' ? 'Voir en direct' : 'View Live'}</span>
+                    <svg className="w-3 h-3 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Live Project Modal */}
+        {selectedLiveProject && (
+          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-fade-in">
+            <div className="bg-white rounded-2xl max-w-6xl w-full max-h-[90vh] overflow-hidden animate-scale-in">
+              {/* Header */}
+              <div className="p-6 border-b border-border bg-gradient-to-r from-primary/10 to-accent/10">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold text-foreground mb-1">{selectedLiveProject.title}</h3>
+                    <p className="text-muted-foreground">{selectedLiveProject.description}</p>
+                  </div>
+                  <button
+                    onClick={() => setSelectedLiveProject(null)}
+                    className="w-10 h-10 rounded-full bg-white border border-border hover:border-primary hover:text-primary transition-all duration-300 flex items-center justify-center"
+                  >
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              {/* iframe Container */}
+              <div className="relative h-[600px] bg-gray-100">
+                <iframe
+                  src={selectedLiveProject.url}
+                  className="w-full h-full border-0"
+                  title={selectedLiveProject.title}
+                  loading="lazy"
+                  onLoad={() => {
+                    const loader = document.getElementById('iframe-loader');
+                    if (loader) loader.style.display = 'none';
+                  }}
+                />
+                {/* Loading indicator */}
+                <div className="absolute inset-0 flex items-center justify-center bg-white/90 pointer-events-none" id="iframe-loader">
+                  <div className="text-center">
+                    <div className="w-12 h-12 border-4 border-primary border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <p className="text-muted-foreground">
+                      {language === 'fr' ? 'Chargement du projet...' : 'Loading project...'}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Footer */}
+              <div className="p-6 border-t border-border bg-secondary/30">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-4">
+                    <span className="text-sm text-muted-foreground">
+                      {language === 'fr' ? 'URL:' : 'URL:'}
+                    </span>
+                    <code className="text-sm font-mono bg-primary/10 text-primary px-2 py-1 rounded">
+                      {selectedLiveProject.url}
+                    </code>
+                  </div>
+                  <a
+                    href={selectedLiveProject.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors duration-300 flex items-center gap-2"
+                  >
+                    <span>{language === 'fr' ? 'Ouvrir dans un nouvel onglet' : 'Open in new tab'}</span>
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
 
       </div>
 

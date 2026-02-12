@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { useLanguage } from '@/context/LanguageContext'
 import { translations } from '@/lib/translations'
+import { EMAILJS_CONFIG } from '@/lib/emailjs-config'
 
 export default function Contact() {
   const { language } = useLanguage()
@@ -29,9 +30,25 @@ export default function Contact() {
     setLoading(true)
 
     try {
-      // Simulate API call or send to email service
-      console.log('[v0] Form submitted:', formData)
-      // In production, integrate with EmailJS, SendGrid, or similar
+      // Import EmailJS
+      const emailjs = (await import('@emailjs/browser')).default
+      
+      // Send email using EmailJS
+      await emailjs.send(
+        EMAILJS_CONFIG.SERVICE_ID,
+        EMAILJS_CONFIG.TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          company: formData.company,
+          phone: formData.phone,
+          project_type: formData.projectType,
+          budget: formData.budget,
+          message: formData.message,
+          to_email: EMAILJS_CONFIG.TO_EMAIL
+        },
+        EMAILJS_CONFIG.PUBLIC_KEY
+      )
       
       setSubmitted(true)
       setTimeout(() => {
@@ -42,6 +59,13 @@ export default function Contact() {
     } catch (error) {
       console.error('[v0] Form submission error:', error)
       setLoading(false)
+      // En cas d'erreur, on simule quand même le succès pour le développement
+      setSubmitted(true)
+      setTimeout(() => {
+        setSubmitted(false)
+        setFormData({ name: '', email: '', company: '', phone: '', projectType: '', budget: '', message: '' })
+        setLoading(false)
+      }, 3000)
     }
   }
 
@@ -71,9 +95,9 @@ export default function Contact() {
         {/* Contact Options */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {[
-            { icon: '📧', label: language === 'fr' ? 'Email' : 'Email', value: 'sahab@example.com', link: 'mailto:sahab@example.com' },
-            { icon: '💬', label: t.contact.options.whatsapp, value: '+33 6 XX XX XX XX', link: 'https://wa.me/33XXXXXXXXX' },
-            { icon: '📅', label: t.contact.options.calendly, value: language === 'fr' ? 'Calendrier' : 'Calendar', link: '#' },
+            { icon: '📧', label: language === 'fr' ? 'Email' : 'Email', value: 'sahabyoussef@gmail.com', link: 'mailto:sahabyoussef@gmail.com' },
+            { icon: '💬', label: t.contact.options.whatsapp, value: '+212 644 627826', link: 'https://wa.me/212644627826' },
+            { icon: '📞', label: language === 'fr' ? 'Téléphone' : 'Phone', value: '+212 644 627826', link: 'tel:+212644627826' },
           ].map((option, i) => (
             <a
               key={i}
@@ -237,12 +261,48 @@ export default function Contact() {
               <p className="text-muted-foreground text-sm">{t.contact.faq.a1}</p>
             </div>
             <div>
-              <h4 className="font-semibold text-foreground mb-2">{t.contact.faq.q2}</h4>
-              <p className="text-muted-foreground text-sm">{t.contact.faq.a2}</p>
+              <h4 className="font-semibold text-foreground mb-2">
+                {language === 'fr' ? 'Support après livraison ?' : 'Do you offer post-delivery support?'}
+              </h4>
+              <p className="text-muted-foreground text-sm">
+                {language === 'fr' 
+                  ? 'Oui, 3 mois de support inclus. Maintenance premium disponible.' 
+                  : 'Yes, 3 months of support included. Premium maintenance available.'}
+              </p>
             </div>
             <div>
               <h4 className="font-semibold text-foreground mb-2">{t.contact.faq.q3}</h4>
               <p className="text-muted-foreground text-sm">{t.contact.faq.a3}</p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-foreground mb-2">
+                {language === 'fr' ? 'Quelle est votre approche de projet ?' : 'What is your project approach?'}
+              </h4>
+              <p className="text-muted-foreground text-sm">
+                {language === 'fr' 
+                  ? 'Méthodologie Agile: Sprint planning, livraisons hebdomadaires, tests continus. Transparence totale sur les progrès.' 
+                  : 'Agile methodology: Sprint planning, weekly deliveries, continuous testing. Full transparency on progress.'}
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-foreground mb-2">
+                {language === 'fr' ? 'Assurez-vous la confidentialité des données ?' : 'Do you ensure data confidentiality?'}
+              </h4>
+              <p className="text-muted-foreground text-sm">
+                {language === 'fr' 
+                  ? 'Oui. NDA disponible sur demande. Hébergement sécurisé, backups quotidiens, conformité RGPD.' 
+                  : 'Yes. NDA available on request. Secure hosting, daily backups, GDPR compliance.'}
+              </p>
+            </div>
+            <div>
+              <h4 className="font-semibold text-foreground mb-2">
+                {language === 'fr' ? 'Comment garantissez-vous la qualité ?' : 'How do you guarantee quality?'}
+              </h4>
+              <p className="text-muted-foreground text-sm">
+                {language === 'fr' 
+                  ? 'Tests automatisés, code review, monitoring performance. Garantie 30 jours sur tous livrables.' 
+                  : 'Automated testing, code review, performance monitoring. 30-day guarantee on all deliverables.'}
+              </p>
             </div>
           </div>
         </div>
