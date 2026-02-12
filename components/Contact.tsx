@@ -97,7 +97,7 @@ export default function Contact() {
           {[
             { icon: '📧', label: language === 'fr' ? 'Email' : 'Email', value: 'sahabyoussef@gmail.com', link: 'mailto:sahabyoussef@gmail.com' },
             { icon: '💬', label: t.contact.options.whatsapp, value: '+212 644 627826', link: 'https://wa.me/212644627826' },
-            { icon: '📞', label: language === 'fr' ? 'Téléphone' : 'Phone', value: '+212 644 627826', link: 'tel:+212644627826' },
+            { icon: '📞', label: language === 'fr' ? 'Téléphone' : 'Phone', value: '+212 751 134318', link: 'tel:+212751134318' },
           ].map((option, i) => (
             <a
               key={i}

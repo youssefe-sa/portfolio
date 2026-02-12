@@ -24,22 +24,36 @@ export default function Footer() {
               <span className="font-semibold text-primary">Sahab Youssef</span>
             </Link>
             <p className="text-muted-foreground text-sm mb-4">
-              {t.footer.tagline}
+              {language === 'fr' 
+                ? 'Développeur spécialisé en WordPress, React, Node.js, n8n, Backend & Frontend. Expert en automatisation et solutions IA pour entreprises.'
+                : 'Developer specialized in WordPress, React, Node.js, n8n, Backend & Frontend. Expert in automation and AI solutions for businesses.'}
             </p>
-            <p className="text-xs text-muted-foreground">© {currentYear} {t.footer.copyright}</p>
           </div>
 
           {/* Services */}
           <div className="animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
             <h4 className="font-semibold text-foreground mb-4">{t.footer.quickLinks}</h4>
             <ul className="space-y-2 text-sm">
-              {['WordPress Dev', 'React & Next.js', 'SEO Optimization', 'Automation & AI', 'Consulting'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href="#services" className="text-muted-foreground hover:text-primary transition-colors">
+                  {language === 'fr' ? 'Services' : 'Services'}
+                </a>
+              </li>
+              <li>
+                <a href="#projects" className="text-muted-foreground hover:text-primary transition-colors">
+                  {language === 'fr' ? 'Projets' : 'Projects'}
+                </a>
+              </li>
+              <li>
+                <a href="#expertise" className="text-muted-foreground hover:text-primary transition-colors">
+                  {language === 'fr' ? 'Expertise' : 'Expertise'}
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">
+                  {language === 'fr' ? 'Contact' : 'Contact'}
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -47,13 +61,26 @@ export default function Footer() {
           <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
             <h4 className="font-semibold text-foreground mb-4">Ressources</h4>
             <ul className="space-y-2 text-sm">
-              {['Blog', 'Case Studies', 'Tech Stack', 'Méthodologie', 'FAQ'].map((item) => (
-                <li key={item}>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-                    {item}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">
+                  {language === 'fr' ? 'À Propos' : 'About'}
+                </a>
+              </li>
+              <li>
+                <a href="#projects" className="text-muted-foreground hover:text-primary transition-colors">
+                  {language === 'fr' ? 'Études de Cas' : 'Case Studies'}
+                </a>
+              </li>
+              <li>
+                <a href="#expertise" className="text-muted-foreground hover:text-primary transition-colors">
+                  {language === 'fr' ? 'Stack Technique' : 'Tech Stack'}
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">
+                  {language === 'fr' ? 'Support' : 'Support'}
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -62,30 +89,15 @@ export default function Footer() {
             <h4 className="font-semibold text-foreground mb-4">Contact</h4>
             <div className="space-y-3 text-sm">
               <p>
-                <a href="mailto:hello@sahabyoussef.com" className="text-muted-foreground hover:text-primary transition-colors break-all">
-                  hello@sahabyoussef.com
+                <a href="mailto:sahabyoussef@gmail.com" className="text-muted-foreground hover:text-primary transition-colors break-all">
+                  sahabyoussef@gmail.com
                 </a>
               </p>
               <p>
-                <a href="tel:+33612345678" className="text-muted-foreground hover:text-primary transition-colors">
-                  +33 6 12 34 56 78
+                <a href="tel:+212751134318" className="text-muted-foreground hover:text-primary transition-colors">
+                  +212 751 134318
                 </a>
               </p>
-              <div className="flex gap-4 pt-2">
-                {[
-                  { label: 'LinkedIn', icon: '💼' },
-                  { label: 'GitHub', icon: '💻' },
-                ].map((social) => (
-                  <a
-                    key={social.label}
-                    href="#"
-                    className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-all"
-                    title={social.label}
-                  >
-                    {social.icon}
-                  </a>
-                ))}
-              </div>
             </div>
           </div>
         </div>
@@ -96,17 +108,19 @@ export default function Footer() {
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
           <p className="text-sm text-muted-foreground">
-            Conçu & développé avec ❤️ par Sahab Youssef | Powered by React + Next.js + Vercel
+            {language === 'fr' 
+              ? '© 2025 Sahab Youssef. Tous droits réservés. Développeur web spécialisé.'
+              : '© 2025 Sahab Youssef. All rights reserved. Specialized web developer.'}
           </p>
           <div className="flex gap-6 text-sm">
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-              Confidentialité
+            <a href="/confidentialite" className="text-muted-foreground hover:text-primary transition-colors">
+              {language === 'fr' ? 'Confidentialité' : 'Privacy'}
             </a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-              Conditions
+            <a href="/conditions" className="text-muted-foreground hover:text-primary transition-colors">
+              {language === 'fr' ? 'Conditions' : 'Terms'}
             </a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
-              Mentions Légales
+            <a href="/mentions-legales" className="text-muted-foreground hover:text-primary transition-colors">
+              {language === 'fr' ? 'Mentions Légales' : 'Legal Notices'}
             </a>
           </div>
         </div>
