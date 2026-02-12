@@ -84,7 +84,7 @@ export default function Stack() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
           {[
             { number: '96%', label: t.stack.stats.projects },
-            { number: '9+', label: t.stack.stats.experience },
+            { number: '7+', label: t.stack.stats.experience },
             { number: '95%', label: t.stack.stats.satisfaction },
             { number: '100%', label: t.stack.stats.timeline },
           ].map((stat, i) => (
